@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SGI Hello world TP3</title>
+
+    <style>
+      #stopwatch-container {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 2.5em;
+          color: white;
+          font-family: Arial, sans-serif;
+          user-select: none;
+      }
+
+      #countdown-timer-container, #paused-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10em;
+        color: white;
+        font-family: Arial, sans-serif;
+        user-select: none;
+      }
+
+      #paused-container {
+        font-size: 3em;
+      }
+
+      #speedometer-container {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        font-size: 2.5em;
+        color: white;
+        font-family: Arial, sans-serif;
+        user-select: none;
+      }
+
+      #lapCounter-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 2.5em;
+        color: white;
+        font-family: Arial, sans-serif;
+        user-select: none;
+      }
+
+      #finished-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10em;
+        color: white;
+        font-family: Arial, sans-serif;
+        user-select: none;
+      }
+
+    </style>
+
+    <link rel="shortcut icon" href="image/favicon/3d.png" />
+    <link rel="stylesheet" href="styles.css">
+
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/"
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <div id="camera"></div>
+    <!-- <div id="textInput">
+      <label for="userInput">Please insert your name: </label>
+      <input type="text" id="userInput">
+    </div> -->
+    <div id="stopwatch-container"></div>
+    <div id="paused-container"></div>
+    <div id="countdown-timer-container"></div>
+    <div id="speedometer-container"></div>
+    <div id="lapCounter-container"></div>
+    <div id="finished-container"></div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

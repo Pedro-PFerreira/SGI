@@ -1,0 +1,1252 @@
+<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<yaf> 
+
+	<!-- Credits of the original file go to Group 1, class 1 of course LAIG school year 2013/2014, FEUP, University of Porto -->
+	
+    <globals background="0.678, 0.847, 0.902 1" ambient="0.678, 0.847, 0.902 1" /> 
+    <fog color="1.0 1.0 1.0 1.0" near="0.0" far="100.0" />
+
+    <skybox size="200 200 200" center="0 99 0" emissive="1.0 1.0 1.0 1.0" intensity="1.0" up="scenes/demo/textures/sky_up_aurora.jpeg" down="scenes/demo/textures/arcticFloor.jpg" left="scenes/demo/textures/aurora.mp4" right="scenes/demo/textures/aurora.mp4" front="scenes/demo/textures/aurora.mp4" back="scenes/demo/textures/aurora.mp4"/>
+
+    <cameras initial="cam1" > 
+        <perspective id="cam1" 
+            angle="60" 
+            near="0.1"
+            far="1000" 
+            location="15 15 15" 
+            target="0 0.0 0" /> 
+
+        <orthogonal id="cam2" 
+            near="0.1" 
+            far="1000" 
+            location="0 15 15" 
+            target="0.0 15 0.0" 
+            left="-5" 
+            right="5" 
+            bottom="-5" 
+            top="-5" /> 
+    </cameras> 
+
+    <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas --> 
+    <textures>        
+        <texture id="arcticTex" filepath="scenes/demo/textures/arcticPanorama.jpg" />
+        <texture id="iglooTex" filepath="scenes/demo/textures/igloo.jpg" />
+        <texture id="floorTex" filepath="scenes/demo/textures/arcticFloor.jpg" 
+            mipmap0="scenes/demo/textures/arcticFloor.1024.jpg"
+            mipmap1="scenes/demo/textures/arcticFloor.512.jpg"
+            mipmap2="scenes/demo/textures/arcticFloor.256.jpg"
+            mipmap3="scenes/demo/textures/arcticFloor.128.jpg"
+            mipmap4="scenes/demo/textures/arcticFloor.64.jpg"
+            mipmap5="scenes/demo/textures/arcticFloor.32.jpg"
+            mipmap6="scenes/demo/textures/arcticFloor.16.jpg"
+            mipmap7="scenes/demo/textures/arcticFloor.8.jpg"
+        />
+        <texture id="carrotTex" filepath="scenes/demo/textures/carrot.png" />
+        <texture id="snowmanTex" filepath="scenes/demo/textures/snow.jpg" />
+        <texture id="snowmanSignTex" filepath="scenes/demo/textures/sign.jpg" />
+        <texture id="darkMetalTex" filepath="scenes/demo/textures/dark-metal.jpg" />
+        <texture id="iceTex" filepath="scenes/demo/textures/ice.jpg" />
+        <texture id="pineTex" filepath="scenes/demo/textures/pine.png" />
+        <texture id="trunkTex" filepath="scenes/demo/textures/table.png" />
+    </textures> 
+
+    <materials> 
+
+        <material id="arcticPanoramaApp" 
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10"
+            textureref="arcticTex"
+            texlength_s="100" 
+            texlength_t="100" />
+
+        <material id="iglooApp"
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="iglooTex" 
+            texlength_s="1" 
+            texlength_t="1"/>
+
+        <material id="iglooTunnelApp"
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="iglooTex" 
+            texlength_s="1" 
+            texlength_t="1"
+            />
+
+        <material id="floorApp"
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="floorTex" 
+            texlength_s="1" 
+            texlength_t="1"/>
+
+        <material id="carrotApp"
+            color="1.0 0.647 0.0 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="carrotTex" 
+            texlength_s="1" 
+            texlength_t="1"/>
+
+        <material id="snowmanApp"
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="snowmanTex"
+            shading="smooth"
+        />
+
+        <material id="snowmanBlackApp"
+            color="0.01 0.01 0.01 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10"
+            shading="smooth"
+        />
+
+        <material id="snowmanArmApp"
+            color="0.3961 0.2627 0.1294 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+        />
+
+        <material id="snowmanSignApp"
+            color="0.8 0.8 0.8 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="10" 
+            textureref="snowmanSignTex" 
+        />
+
+        <material id="darkMetalApp"
+            color="0.15 0.15 0.15 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+            specular="0 0 0 0" 
+            shininess="1" 
+            textureref="darkMetalTex"/>
+
+        <material id="lampApp"
+            color="1.0 0.2 0 1.0" 
+            emissive="1.0 0.2 0 1.0" 
+            specular="0.2 0.2 0.2 1.0" 
+            shininess="10" />
+
+        <material id="iceApp"
+            color="1 1 1 0.0"
+            emissive="0.00351 0.29646 0.27294 0.0"
+            specular="1.0 1.0 1.0 1.0"
+            shininess="0.1"
+            textureref="iceTex"
+            texlength_s="1"
+            texlength_t="1" />
+        
+        <material id="iglooHoleApp"
+            color="0 0 0 0.0"
+            emissive="0 0 0 0.0"
+            specular="0.0 0.0 0.0 1.0"
+            shininess="0.0"
+            texlength_s="1"
+            texlength_t="1" />
+			
+        <material id="pineApp" 
+            emissive="0.0 0.0 0.0 1" 
+            color="0.10196 0.094117 0.12941 1.0"  
+            specular="0 0 0 0" 
+            shininess="0" 
+            textureref="pineTex" 
+            texlength_s="1" 
+            texlength_t="1"
+            wireframe = "true" />
+
+        <material id="trunkApp" 
+            color="0.1 0.1 0.1 1.0" 
+            emissive="0.0 0.0 0.0 0.0" 
+			specular="0 0 0 0" 
+            shininess="10" 
+            textureref="trunkTex" 
+            texlength_s="1" 
+            texlength_t="1" />
+			
+    </materials> 
+
+    <graph rootid="scene"> 
+		
+    <!-- ____________________________Scene____________________________ -->
+
+		<node id="scene" castshadows="true" receiveshadows="true"> 
+            <children>
+                <noderef id="floor" /> 
+				<noderef id="igloo" />
+                <noderef id="snowman" />
+                <noderef id="lamp" />
+                <noderef id="env" />
+                <noderef id="floorLake" />
+                <noderef id="forest" />
+
+                <pointlight id="light1" enabled="true" 
+                    color="0.5 0.6 0.8 1" 
+                    intensity="25.0"
+                    distance="1000"
+                    decay="1.0"
+                    castshadow="true"
+                    position="11.25 7.3 3.75"
+                /> 
+            </children> 
+        </node>	
+
+        <!-- ____________________________Floor____________________________ -->
+
+
+        <node id="floor">
+            <materialref id="floorApp" />
+
+            <transforms>
+                <rotate value3="-90 0 0" />
+            </transforms>
+
+            <children>
+                <primitive>
+                    <rectangle xy1="-100 -100" xy2="100 100" />
+                </primitive>
+
+            </children>
+        </node>
+
+        <node id="floorLake">
+
+            <children>
+                <noderef id="floorLake1" />
+                <noderef id="floorLake2" />
+                <noderef id="floorLake3" />
+            </children>
+        </node>
+
+        <node id="floorLake1">
+            <transforms>
+                <rotate value3="-90 0 0" />
+                <translate value3="25 0.01 0.0" />
+            </transforms>
+
+            <children>
+                <primitive>
+                    <polygon radius="3.0" stacks="12" slices="17"
+                        color_c="0 1 1 1" color_p="0.2 0.2 0.2 1" /> 
+                </primitive>
+            </children>
+        </node>
+
+        <node id="floorLake2">
+            <transforms>
+                <rotate value3="-90 0 0" />
+                <translate value3="30 0.01 32" />
+            </transforms>
+
+            <children>
+                <primitive>
+                    <polygon radius="10.0" stacks="6" slices="6"
+                        color_c="0 1 1 1" color_p="0.2 0.2 0.2 1" /> 
+                </primitive>
+            </children>
+        </node>
+
+        <node id="floorLake3">
+            <transforms>
+                <rotate value3="-90 0 0" />
+                <translate value3="50 0.01 -50" />
+            </transforms>
+
+            <children>
+                <primitive>
+                    <polygon radius="20.0" stacks="3" slices="4"
+                        color_c="0 1 1 1" color_p="0.2 0.2 0.2 1" /> 
+                </primitive>
+            </children>
+        </node>
+
+        <!-- ____________________________Igloo____________________________ -->
+
+        <node id="igloo">
+            <transforms>
+                <translate value3="0 0 0" />
+            </transforms>
+
+            <materialref id="iglooApp" />            
+
+            <children>
+                <noderef id="iglooDome" />
+                <noderef id="iglooTunnel" />
+            </children>
+        </node>
+
+        <node id="iglooDome">
+            <children>
+                <primitive>
+                    <sphere radius="4" slices="20" stacks="20" thetastart="0" thetalength="1.57079632679"
+                        phistart="1.57079632679" philength="6.283185307" />
+                </primitive>
+            </children>
+        </node>
+
+        <node id="iglooTunnel">
+            <transforms>
+                <translate value3="4.5 0 0" />
+                <rotate value3="0 0 90" />
+                <scale value3="1.35 1 1" />
+            </transforms>     
+
+            <materialref id="iglooTunnelApp" />
+
+            <children>
+                <primitive>
+                    <cylinder base="1.5" top="1.5" height="2.25" slices="32" stacks="2"
+                        thetastart="0" thetalength="3.14159265359"/>
+                        
+                    
+                </primitive>
+                <noderef id="iglooTunnelHole" />
+            </children>
+        </node>
+
+        <node id="iglooTunnelHole"> 
+            <materialref id="iglooHoleApp"/>
+                <transforms>
+                <translate value3="0 -1.005 0" />
+            </transforms> 
+            <children>
+                <primitive>
+                    <cylinder base="1.1" top="0.75" height="0.25" slices="32" stacks="2"
+                                        thetastart="0" thetalength="3.14159265359"/> 
+                </primitive>
+            </children>
+
+        </node>
+
+        <!-- ________________________________________________________ -->
+
+        <!-- ____________________________Snowman____________________________ -->
+
+        <lod id="big_sphere_lod" near="0" far="1000" > 
+            <noderef id="sphere_q1" mindist="2" />
+            <noderef id="sphere_q2" mindist="5" />
+            <noderef id="sphere_q3" mindist="12" />
+            <noderef id="sphere_q4" mindist="22" />
+        </lod>
+
+        <lod id="small_sphere_lod" near="0" far="1000" > 
+            <noderef id="sphere_q1" mindist="0.5" />
+            <noderef id="sphere_q2" mindist="1" />
+            <noderef id="sphere_q3" mindist="1.75" />
+            <noderef id="sphere_q4" mindist="3" />
+        </lod>
+
+        <node id="snowman">
+            <transforms>
+                <scale value3="0.4 0.4 0.4" />
+                <rotate value3="0 30 0" />
+                <translate value3="5 0 3" />
+            </transforms>
+
+            <materialref id="snowmanApp" />
+
+            <children>
+                <noderef id="snowmanHead" />
+                <noderef id="snowmanBody" />
+            </children>
+        </node>
+
+        <node id="snowmanHead">
+            <transforms>
+                <translate value3="0 4 0" />
+            </transforms>
+
+            <children>
+                <noderef id="snowmanNose" />
+                <noderef id="snowmanHat" />
+                <noderef id="snowmanEye1" />
+                <noderef id="snowmanEye2" />
+                <noderef id="snowmanHeadSphere" />
+            </children>
+        </node>
+
+        <node id="snowmanHeadSphere">
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="32" stacks="32" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+                <lodref id="big_sphere_lod" />
+            </children>
+        </node>
+
+        <node id="snowmanNose">
+            <transforms>
+                <scale value3="0.2 0.3 0.2" />
+                <translate value3="1.3 0 0" />
+                <rotate value3="0 0 90" />
+            </transforms>
+
+            <materialref id="carrotApp" />
+
+            <children>
+                <primitive>
+                    <cylinder base="0" top="1.5" height="3" slices="32" stacks="2"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="snowmanEye1">
+            <transforms>
+                <translate value3="0.8 0.4 0.5" />
+            </transforms>     
+
+            <children>
+                <noderef id="snowmanRock" />
+            </children>
+        </node>
+
+        <node id="snowmanEye2">
+            <transforms>
+                <translate value3="0.8 0.4 -0.5" />
+            </transforms>     
+
+            <children>
+                <noderef id="snowmanRock" />
+            </children>
+        </node>
+        
+        <node id="snowmanRock">  
+            <transforms>
+                <scale value3="0.1 0.1 0.1" />
+            </transforms>
+
+            <materialref id="snowmanBlackApp" />
+
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="32" stacks="32" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+                <lodref id="small_sphere_lod" />
+            </children>
+        </node>
+
+        <node id="snowmanHat">
+            <transforms>
+                <translate value3="0 1 0" />
+            </transforms>     
+
+            <materialref id="snowmanBlackApp" />
+
+            <children>
+                <noderef id="snowmanHatBase" />
+                <noderef id="snowmanHatTop" />
+            </children>
+        </node>
+
+        <node id="snowmanHatBase">
+            <transforms>
+                <translate value3="0 0 0" />
+            </transforms>     
+
+            <children>
+                <primitive>
+                    <cylinder base="1" top="1" height="0.4" slices="32" stacks="12"/>
+                </primitive>
+            </children>
+        </node>
+
+        <node id="snowmanHatTop">
+            <transforms>
+                <translate value3="0 0.65 0" />
+            </transforms>     
+
+            <children>
+                <primitive>
+                    <cylinder base="0.75" top="0.75" height="1.3" slices="32" stacks="12"/>
+                </primitive>
+            </children>
+        </node>
+
+        <node id="snowmanBody">
+
+            <transforms>
+                <translate value3="0 1 0" />
+            </transforms>     
+
+            <materialref id="snowmanApp" />
+
+            <children>
+                <noderef id="snowmanBodyBall1" />
+                <noderef id="snowmanBodyBall2" />
+            </children>
+
+        </node>
+
+        <node id="snowmanBodyBall1">  
+            <transforms>
+                <translate value3="0 1.5 0" />
+            </transforms> 
+            
+            <children>
+
+                <noderef id="snowmanButton1" />
+                <noderef id="snowmanButton2" />
+                <noderef id="snowmanButton3" />
+                <noderef id="snowmanArm1" />
+                <noderef id="snowmanArm2" />
+                <noderef id="snowmanBodyBall1Sphere" />
+            </children>
+        </node>
+
+        <node id="snowmanBodyBall1Sphere">
+            <transforms>
+                <scale value3="1.2 1.2 1.2" />
+            </transforms> 
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="32" stacks="32" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+                <lodref id="big_sphere_lod" />
+            </children>
+        </node>
+        
+        <node id="snowmanBodyBall2">  
+            <transforms>
+                <translate value3="0 0 0" />
+                <scale value3="1.5 1.5 1.5" />
+            </transforms> 
+            
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="32" stacks="32" thetalength="3.14159265359" />
+                </primitive>
+                <lodref id="big_sphere_lod" />
+            </children>
+        </node>
+        
+        <node id="snowmanButton1">  
+            <transforms>
+                <translate value3="1.05 0.6 0" />
+            </transforms> 
+            
+            <children>
+                <noderef id="snowmanRock" />
+            </children>
+        </node>
+
+        <node id="snowmanButton2">  
+            <transforms>
+                <translate value3="1.175 0.3 0" />
+            </transforms> 
+            
+            <children>
+                <noderef id="snowmanRock" />
+            </children>
+        </node>
+
+        <node id="snowmanButton3">  
+            <transforms>
+                <translate value3="1.2 -0.05 0" />
+            </transforms> 
+            
+            <children>
+                <noderef id="snowmanRock" />
+            </children>
+        </node>
+
+        <node id="snowmanArm1">
+
+            <transforms>
+                <translate value3="0.5 0.5 1.5" />
+                <rotate value3="90 30 -30" />
+            </transforms>
+
+            <children>
+                <noderef id="snowmanArm" />
+            </children>
+
+        </node>
+
+        <node id="snowmanArm2">
+
+            <transforms>
+                <translate value3="0.5 0.5 -1.5" />
+                <rotate value3="90 30 30" />
+            </transforms>
+
+            <children>
+                <noderef id="snowmanArm" />
+                <noderef id="snowmanSign" />
+            </children>
+        </node>
+
+        <node id="snowmanArm">
+
+            <materialref id="snowmanArmApp" />
+            
+            <children>
+                <primitive>
+                    <cylinder base="0.1" top="0.1" height="1.75" slices="32" stacks="2" />
+                </primitive>
+            </children>
+        </node>
+
+        <node id="snowmanSign">
+            <transforms>
+                <translate value3="0.15 -0.75 0" />
+                <rotate value3="-90 0 0" />
+            </transforms>
+
+            <materialref id="snowmanSignApp" />
+
+            <children>
+                <primitive>
+                    <box xyz1="0 0 0" xyz2="0.1 1.35 1.95"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="sphere_q1">
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="24" stacks="24" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+            </children>
+        </node>
+        <node id="sphere_q2">
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="16" stacks="16" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+            </children>
+        </node>
+        <node id="sphere_q3">
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="10" stacks="10" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+            </children>
+        </node>
+        <node id="sphere_q4">
+            <children>
+                <primitive>
+                    <sphere radius="1" slices="5" stacks="5" thetastart="0" thetalength="3.14159265359"/>
+                </primitive>
+            </children>
+        </node>
+        <!-- ________________________________________________________ -->
+
+        <!-- ____________________________Forest____________________________ -->
+
+        <node id="forest">
+            <transforms>
+                <translate value3="-10 -1 -10" />
+            </transforms>
+
+            <children>
+                <noderef id="tree1" />
+                <noderef id="tree2" />
+                <noderef id="tree3" />
+                <noderef id="tree4" />
+                <noderef id="tree5" />
+                <noderef id="tree6" />
+                <noderef id="tree7" />
+                <noderef id="tree8" />
+                <noderef id="tree9" />
+                <noderef id="tree10" />
+                <noderef id="tree11" />
+                <noderef id="tree12" />
+            </children>
+        </node>
+
+        <node id="tree1">
+            <transforms>
+                <translate value3="44 0 33" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree2">
+            <transforms>
+                <translate value3="33 0 33" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree3">
+            <transforms>
+                <translate value3="38 0 25" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree4">
+            <transforms>
+                <translate value3="-12 0 1" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree5">
+            <transforms>
+                <translate value3="-14 0 18" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree6">
+            <transforms>
+                <translate value3="-8 0 12" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree7">
+            <transforms>
+                <translate value3="-9 0 -19" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree8">
+            <transforms>
+                <translate value3="-12 0 -10" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree9">
+            <transforms>
+                <translate value3="-8 0 20" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree10">
+            <transforms>
+                <translate value3="-11 0 16" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        v
+        <node id="tree11">
+            <transforms>
+                <translate value3="-6 0 -20" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        <node id="tree12">
+            <transforms>
+                <translate value3="-5 0 5" />
+            </transforms>
+
+            <children>
+                <noderef id="tree" />
+            </children>
+        </node>
+        
+
+        <!-- ________________________________________________________ -->
+
+        <!-- ____________________________Tree____________________________ -->
+
+        <node id="tree">
+			<transforms>
+				<translate value3="2 0.7 2" />
+            </transforms> 
+			
+            <children>             
+				<noderef id="trunk" />
+				<noderef id="treeSeg1" />
+				<noderef id="treeSeg2" />
+				<noderef id="treeSeg3" />
+            </children> 
+        </node>
+
+        <node id="trunk">
+			<transforms>
+				<translate value3="0 1.7 0" />
+			</transforms> 
+			
+			<materialref id="trunkApp" />
+			
+            <children>             
+                <primitive>
+                    <cylinder base="0.4" top="0.4" height="3" slices="10" stacks="10" />
+                </primitive>
+            </children> 
+        </node>
+		
+		<node id="treeSeg1">
+			<transforms>
+				<translate value3="0 2.7 0" />
+            </transforms> 
+			
+			<materialref id="pineApp" />
+			
+            <children>             
+                <primitive>
+                    <cylinder base="2" top="1" height="1.9" slices="32" stacks="32" />
+                </primitive>
+            </children> 
+        </node>
+		
+		<node id="treeSeg2">
+			<transforms>
+				<translate value3="0 4.6 0" />
+            </transforms> 
+			
+			<materialref id="pineApp" />
+			
+            <children>
+                <primitive >
+                    <cylinder base="1.5" top="0.75" height="2" slices="32" stacks="32" />
+                </primitive>
+            </children> 
+        </node>
+		
+		<node id="treeSeg3">
+			<transforms>
+				<translate value3="0 6.6 0" />
+            </transforms> 
+			
+			<materialref id="pineApp" />
+			
+            <children>             
+                <primitive>
+                    <cylinder base="0.9" top="0" height="2" slices="32" stacks="32" />
+                </primitive>
+
+            </children> 
+        </node>
+
+        <!-- ________________________________________________________ -->
+
+        <!-- ____________________________Lamp____________________________ -->
+
+        <node id="lamp">
+
+            <transforms>
+                <translate value3="6 0.075 -3.5"  />
+                <scale value3="0.4 0.4 0.4" />
+            </transforms>
+
+            <children>
+                <noderef id="lampBodyBottom" />
+                <noderef id="lampBodyTop" />
+                <noderef id="lampBody" />
+                <noderef id="lampLight" />
+                <noderef id="lampBase" />
+                <noderef id="lampTop" />
+                <noderef id="lampHandle" />
+                <noderef id="lampBar1" />
+                <noderef id="lampBar2" />
+                <noderef id="lampBar3" />
+                <noderef id="lampBar4" />
+
+            </children>
+
+        </node>
+
+        <node id="lampBodyBottom">
+            <transforms>
+                <translate value3="0 0.3 0" />
+                <rotate value3="0 45 0" />
+            </transforms>
+
+            <materialref id="darkMetalApp" />
+
+            <children>
+                <primitive>
+                    <cylinder base="1" top="0.7" height="0.3" slices="4" stacks="1"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampBodyTop">
+            <transforms>
+                <translate value3="0 1.975 0" />
+                <rotate value3="0 45 0" />
+            </transforms>
+
+            <materialref id="darkMetalApp" />
+
+            <children>
+                <primitive>
+                    <cylinder base="0.65" top="0.8" height="0.35" slices="4" stacks="1"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampBase">
+            <materialref id="darkMetalApp" />
+        
+            <children>
+                <primitive>
+                    <box xyz1="0 0 0" xyz2="1.8 0.4 1.8"  />
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampTop">
+            <transforms>
+                <translate value3="0 2.2 0" />
+            </transforms>
+
+            <materialref id="darkMetalApp" />
+        
+            <children>
+                <primitive>
+                    <box xyz1="0 0 0" xyz2="1.4 0.4 1.4"  />
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampBody" receiveshadows="false">  
+            <transforms>
+                <translate value3="0 1.1 0" />
+                <scale value3="1 2.25 1" />
+            </transforms>
+
+            <materialref id="lampApp" />
+
+            <children>
+                <primitive>
+                    <sphere radius="0.5" slices="10" stacks="20" thetalength="3.14159265359"/>
+                </primitive>
+            </children>
+        </node>
+
+        <node id="lampLight">  
+
+            <children>
+                <pointlight id="light1" enabled="true" 
+                    color="1.0 0.2 0 1.0" 
+                    intensity="20.0"
+                    distance="1000"
+                    decay="1.0"
+                    castshadow="true"
+                    position="0 1.175 0"
+                /> 
+            </children>
+        </node>
+
+        <node id="lampBar">
+            <materialref id="snowmanBlackApp" />
+            
+            <children>
+                <primitive>
+                    <cylinder base="0.065" top="0.065" height="2.15" slices="16" stacks="2"/>
+                </primitive>
+            </children>
+        </node>
+
+        <node id="lampBar1">
+            <transforms>
+                <translate value3="0.65 1.15 0.65" />
+                <rotate value3="-5 0 5" />
+            </transforms>
+            
+            <children>
+                <noderef id="lampBar" />
+            </children>
+        </node>
+
+        <node id="lampBar2">
+            <transforms>
+                <translate value3="-0.65 1.15 0.65" />
+                <rotate value3="-5 0 -5" />
+            </transforms>
+            
+            <children>
+                <noderef id="lampBar" />
+            </children>
+        </node>
+
+        <node id="lampBar3">
+            <transforms>
+                <translate value3="0.65 1.15 -0.65" />
+                <rotate value3="5 0 5" />
+            </transforms>
+            
+            <children>
+                <noderef id="lampBar" />
+            </children>
+        </node>
+
+        <node id="lampBar4">
+            <transforms>
+                <translate value3="-0.65 1.15 -0.65" />
+                <rotate value3="5 0 -5" />
+            </transforms>
+            
+            <children>
+                <noderef id="lampBar" />
+            </children>
+        </node>
+
+        <node id="lampHandle">
+            <transforms>
+                <translate value3="0 2.45 0" />
+            </transforms>
+
+            <materialref id="darkMetalApp" />
+            
+            <children>
+                <noderef id="lampHandleBase" />
+                <noderef id="lampHandleGrip" />
+                <noderef id="lampHandleConnection" />
+            </children>
+        </node>
+
+        <node id="lampHandleBase">
+
+            <children>
+                <primitive>
+                    <cylinder base="0.25" top="0.15" height="0.1" slices="4" stacks="1"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampHandleConnection">
+
+            <transforms>
+                <translate value3="0 0.15 0" />
+            </transforms>
+
+            <children>
+                <primitive>
+                    <cylinder base="0.065" top="0.065" height="0.5" slices="8" stacks="2"/>
+                </primitive>
+            </children>
+
+        </node>
+
+        <node id="lampHandleGrip">
+            <transforms>
+                <translate value3="0 0.4 0" />
+                <rotate value3="90 0 0" />
+            </transforms>
+            
+            <children>
+                <primitive>
+                    <cylinder base="0.065" top="0.065" height="1" slices="8" stacks="2"/>
+                </primitive>
+            </children>
+        </node>
+
+        <!-- ________________________________________________________ -->
+
+        <!-- ______________________Environment_______________________ -->
+        <node id="env">
+            <transforms>
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup1" />
+                <noderef id="envMountains" />
+            </children>
+        </node>
+
+        <node id="envMountains">
+            <transforms>
+            </transforms>
+
+            <children>
+                <noderef id="envMountains1" />
+                <noderef id="envMountains2" />
+                <noderef id="envMountains3" />
+            </children>
+        </node>
+
+        <node id="envMountains1">
+            <transforms>
+                <translate value3="-50 0 -15" />
+                <rotate value3="0 180 0" />
+                <scale value3="0.5 0.5 1" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup2" />
+                <noderef id="envSpikeGroup3" />
+                <noderef id="envSpikeGroup4" />
+                <noderef id="envSpikeGroup5" />
+            </children>
+        </node>
+
+        <node id="envMountains2">
+            <transforms>
+                <translate value3="-20 0 55" />
+                <rotate value3="0 245 0" />
+                <scale value3="0.5 0.45 1" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup2" />
+                <noderef id="envSpikeGroup3" />
+                <noderef id="envSpikeGroup4" />
+                <noderef id="envSpikeGroup5" />
+            </children>
+        </node>
+
+        <node id="envMountains3">
+            <transforms>
+                <translate value3="-30 0 -65" />
+                <rotate value3="0 -65 0" />
+                <scale value3="0.65 0.4 1.2" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup2" />
+                <noderef id="envSpikeGroup3" />
+                <noderef id="envSpikeGroup4" />
+                <noderef id="envSpikeGroup5" />
+            </children>
+        </node>
+
+
+        <node id="envSpikeGroup1">
+            <transforms>
+                <translate value3="5 0 -15" />
+                <scale value3="0.2 0.2 0.2" />
+                <rotate value3="0 90 0" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup" />
+            </children>
+        </node>
+
+        <node id="envSpikeGroup2">
+            <transforms>
+                <translate value3="0 0 -50" />
+                <scale value3="4 4 4" />
+                <rotate value3="0 120 0" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup" />
+            </children>
+        </node>
+
+        <node id="envSpikeGroup3">
+            <transforms>
+                <translate value3="0 0 -25" />
+                <scale value3="4 5 6" />
+                <rotate value3="0 210 0" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup" />
+            </children>
+        </node>
+        <node id="envSpikeGroup4">
+            <transforms>
+                <translate value3="0 0 25" />
+                <scale value3="8 5 3" />
+                <rotate value3="0 0 0" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup" />
+            </children>
+        </node>
+        <node id="envSpikeGroup5">
+            <transforms>
+                <translate value3="0 0 0" />
+                <scale value3="4 6 5" />
+                <rotate value3="0 0 0" />
+            </transforms>
+
+            <children>
+                <noderef id="envSpikeGroup" />
+            </children>
+        </node>
+
+        <node id="envSpikeGroup">
+            <transforms>
+                <translate value3="0 10 0" />
+            </transforms>
+
+            <materialref id="iceApp" />
+
+            <children>
+                <noderef id="envSpike1" />
+                <noderef id="envSpike2" />
+                <noderef id="envSpike3" />
+            </children>
+        </node>
+
+        <node id="envSpike1">
+            <transforms>
+                <translate value3="0 -2.5 2" />
+            </transforms>
+            <children>
+                <primitive>
+                    <cylinder base="5" top="0.1" height="15" slices="5" stacks="2" />
+                </primitive>
+            </children>
+        </node>
+        <node id="envSpike2">
+            <transforms>
+                <translate value3="0.5 -5.5 -3.5" />
+            </transforms>
+            <children>
+                <primitive>
+                    <cylinder base="5" top="0.1" height="9" slices="5" stacks="2" />
+                </primitive>
+            </children>
+        </node>
+        <node id="envSpike3">
+            <transforms>
+                <translate value3="1 0 -0.5" />
+            </transforms>
+            <children>
+                <primitive>
+                    <cylinder base="5" top="0.1" height="20" slices="5" stacks="2" />
+                </primitive>
+            </children>
+        </node>
+    </graph> 
+</yaf> 
