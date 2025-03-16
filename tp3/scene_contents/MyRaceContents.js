@@ -188,10 +188,10 @@ class MyRaceContents{
         this.obj_loader = new MyObjLoader(this.scene, 'assets/power-ups/');
 
         // Create some bolts
-        this.bolts = new MyBolt(this.scene, this.stopwatch, ['bolt.obj', 'bolt.mtl']);
+        this.bolts = new MyBolt(this.scene, this.stopwatch, ['Bolt.obj', 'Bolt.mtl']);
 
         // Create some stars
-        this.stars = new MyStar(this.scene, ['star.obj', 'star.mtl']);
+        this.stars = new MyStar(this.scene, ['Star.obj', 'Star.mtl']);
 
         // create a speedometer
         this.speedometer = new MySpeedometer(this.app, this.scene, this.car1);
